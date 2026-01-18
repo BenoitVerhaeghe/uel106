@@ -1,0 +1,308 @@
+:root {
+	--skill-html: #ff6b3c;
+	--skill-css: #1c6ef2;
+	--skill-js: #ffd166;
+	--skill-vs: #3ad3c2;
+	--skill-git: #b669ff;
+	--skill-next: #ff4daf;
+	--skill-tailwind: #38bdf8;
+	--skill-apis: #41c983;
+	--yellow: #efff5d;
+}
+
+body {
+	background-color: rgb(8, 10, 0);
+	font-family: sans-serif;
+	color: white;
+	margin: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+.meteo-header {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.meteo-header p {
+	margin: 0;
+	margin-top: 5px;
+}
+
+.header {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-between;
+	height: 10vh;
+}
+
+.header nav {
+	padding-right: 2%;
+}
+
+.header h1 {
+	padding-left: 2%;
+	color: white;
+}
+
+nav {
+	display: flex;
+	align-items: center;
+}
+
+nav ul {
+	list-style: none;
+	display: flex;
+	gap: 50px;
+	align-items: center;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: white;
+	font-size: 1.2em;
+}
+
+nav ul li a:hover {
+	color: rgb(255, 255, 28);
+}
+
+/* ======================================= */
+
+#accueil {
+	display: flex;
+	width: 100%;
+	padding: 0 5%;
+	box-sizing: border-box;
+	height: 90vh;
+}
+.presentation_container {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.presentation_container h1,
+.presentation_container h2 {
+	margin: 0;
+}
+
+.presentation_container h1 {
+	font-size: 4em;
+	margin-bottom: 20px;
+}
+.presentation_container span {
+	color: rgb(255, 255, 28);
+}
+
+.img_container {
+	width: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.img_container img {
+	width: 50%;
+	border-radius: 50%;
+}
+
+#parcours {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 5%;
+}
+
+#parcours > h2 {
+	font-size: 3em;
+}
+
+#parcours > p {
+	font-size: 4em;
+	margin: 0;
+	margin-bottom: 15px;
+}
+
+.parcours_item {
+	width: 40%;
+	border: 2px solid rgb(255, 255, 28);
+	padding: 1%;
+	border-radius: 20px;
+}
+
+.parcours_item .intro {
+	display: flex;
+	flex-direction: row;
+	gap: 2em;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.parcours_item .intro h2 {
+	font-size: 1.4em;
+	width: 83%;
+}
+.parcours_item .intro h3 {
+	width: 17%;
+}
+
+.parcours_item ul {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	font-size: 1.3em;
+}
+
+/* ================================== */
+
+#competences {
+	width: 70%;
+	margin: 80px auto;
+}
+
+#competences h2 {
+	text-align: center;
+	margin-bottom: 40px;
+	font-size: 3em;
+}
+
+.skill {
+	margin-bottom: 20px;
+}
+
+.skill span {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 5px;
+}
+
+.progress {
+	background-color: #e0e0e0;
+	border-radius: 20px;
+	height: 20px;
+	overflow: hidden;
+}
+
+.progress-bar {
+	height: 100%;
+	border-radius: 20px;
+}
+
+/* Skill levels */
+.progress-bar.html {
+	width: 70%;
+	background-color: var(--skill-html);
+}
+
+.progress-bar.css {
+	width: 50%;
+	background-color: var(--skill-css);
+}
+
+.progress-bar.js {
+	width: 30%;
+	background-color: var(--skill-js);
+}
+
+.progress-bar.vs {
+	width: 60%;
+	background-color: var(--skill-vs);
+}
+
+.progress-bar.git {
+	width: 45%;
+	background-color: var(--skill-git);
+}
+
+.progress-bar.next {
+	width: 40%;
+	background-color: var(--skill-next);
+}
+
+.progress-bar.tailwind {
+	width: 55%;
+	background-color: var(--skill-tailwind);
+}
+
+.progress-bar.apis {
+	width: 50%;
+	background-color: var(--skill-apis);
+}
+/* =========================== */
+#projets h2 {
+	text-align: center;
+	margin-bottom: 40px;
+	font-size: 3em;
+}
+
+#projets {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+button {
+	padding: 0.5em 1em;
+	font-size: 1em;
+	cursor: pointer;
+	border: 2px solid var(--yellow);
+	border-radius: 5px;
+	background-color: transparent;
+	color: var(--yellow);
+}
+
+.project-card {
+	display: flex;
+	flex-direction: column;
+	color: white;
+	gap: 5px;
+	border: 2px solid var(--yellow);
+	border-radius: 10px;
+	width: 30%;
+	padding: 0.2em 2em;
+	margin-top: 3%;
+}
+
+.projects-container {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	gap: 5em;
+	margin-bottom: 5%;
+}
+
+.projects-container a,
+.projects-container h3 {
+	text-decoration: none;
+	font-size: 1.4em;
+	margin: 1em 0 0 0;
+	color: var(--yellow);
+}
+
+a.github-link {
+	text-decoration: underline;
+}
+
+a {
+	text-decoration: underline;
+	font-size: 1.4em;
+	margin: 1em 0 0 0;
+	color: var(--yellow);
+}
+ul.projets_sup {
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+}
+
+.end {
+	margin-bottom: 10%;
+}

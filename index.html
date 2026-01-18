@@ -1,8 +1,218 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    
-  </head>
-  <body>
-    <p>ma première page chang� V2 dev</p>
-  </body>
+	<head>
+		<title>Portfolio</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="header">
+			<h1 class="logo">Portfolio</h1>
+			<div class="meteo-header">
+				<button id="get-meteo">Météo de Limoges</button>
+				<div id="meteo-container"></div>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="#accueil">Accueil</a></li>
+					<li><a href="#parcours">Parcours</a></li>
+					<li><a href="#competences">Compétences</a></li>
+					<li><a href="#projets">Projets</a></li>
+				</ul>
+			</nav>
+		</div>
+		<section id="accueil">
+			<div class="presentation_container">
+				<h1>Bonjour</h1>
+				<h2>Je m'appelle <span>Benoît</span></h2>
+				<p>
+					Sur ce site, vous retrouverez une présentation de moi et de ma passion
+					pour le développement. Vous trouverez également mes compétences, ainsi
+					que mes projets
+				</p>
+			</div>
+			<div class="img_container">
+				<img
+					class="perso"
+					src="medias/photo.jpg"
+					alt="photo Benoit portfolio"
+				/>
+			</div>
+		</section>
+		<section id="parcours">
+			<h2>PARCOURS</h2>
+			<div class="parcours_item">
+				<div class="intro">
+					<h2>
+						Licence Pro - Métier de l’informatique - Développement Web - Limoges
+						87
+					</h2>
+					<h3>2025- Présent</h3>
+				</div>
+				<ul>
+					<li>Fondamentaux du développement web</li>
+					<li>Travaux Pratiques : Réalisation d’un site web simple</li>
+					<li>Gestion de CMS comme Wix</li>
+				</ul>
+			</div>
+			<p>↑</p>
+			<div class="parcours_item">
+				<div class="intro">
+					<h2>Licence Physique - 1ère Année - Rennes 35</h2>
+					<h3>2021 - 2022</h3>
+				</div>
+			</div>
+
+			<p>↑</p>
+			<div class="parcours_item">
+				<div class="intro">
+					<h2>Licence Informatique - 1ère Année - Rennes 35</h2>
+					<h3>2020 - 2021</h3>
+				</div>
+				<ul>
+					<li>Fondamentaux du développement informatique</li>
+					<li>Méthodologie scientifique et rigueur</li>
+				</ul>
+			</div>
+
+			<p>↑</p>
+			<div class="parcours_item">
+				<div class="intro">
+					<h2>BAC STI2D - Mention Très Bien - Saint-Malo 35</h2>
+					<h3>2017 - 2020</h3>
+				</div>
+				<ul>
+					<li>Spécialité SIN (Systèmes d’Information et Numérique)</li>
+					<li>Spécialité en développement informatique en Seconde</li>
+					<li>Gestion de projets</li>
+					<li>Travail en équipe</li>
+				</ul>
+			</div>
+		</section>
+		<section id="competences">
+			<h2>COMPÉTENCES</h2>
+
+			<div class="skill">
+				<span>HTML</span>
+				<div class="progress">
+					<div class="progress-bar html"></div>
+				</div>
+			</div>
+
+			<div class="skill">
+				<span>CSS</span>
+				<div class="progress">
+					<div class="progress-bar css"></div>
+				</div>
+			</div>
+
+			<div class="skill">
+				<span>JavaScript</span>
+				<div class="progress">
+					<div class="progress-bar js"></div>
+				</div>
+			</div>
+
+			<div class="skill">
+				<span>VS Code</span>
+				<div class="progress">
+					<div class="progress-bar vs"></div>
+				</div>
+			</div>
+
+			<div class="skill">
+				<span>GitHub</span>
+				<div class="progress">
+					<div class="progress-bar git"></div>
+				</div>
+			</div>
+
+			<div class="skill">
+				<span>Next.js</span>
+				<div class="progress">
+					<div class="progress-bar next"></div>
+				</div>
+			</div>
+
+			<div class="skill">
+				<span>Tailwind CSS</span>
+				<div class="progress">
+					<div class="progress-bar tailwind"></div>
+				</div>
+			</div>
+
+			<div class="skill">
+				<span>APIs</span>
+				<div class="progress">
+					<div class="progress-bar apis"></div>
+				</div>
+			</div>
+		</section>
+		<section id="projets">
+			<h2>PROJETS</h2>
+			<button id="loadProjets">Charger mes projets</button>
+			<div id="projects"></div>
+			<div id="projets-list" class="projects-container"></div>
+			<a class="end" href="projets.html">Projets supplémentaires</a>
+		</section>
+
+		<script>
+			document
+				.getElementById("loadProjets")
+				.addEventListener("click", function () {
+					const url = "https://api.github.com/users/Histokaa/repos";
+
+					fetch(url)
+						.then((response) => response.json())
+						.then((data) => {
+							const projectsDiv = document.getElementById("projets-list");
+							projectsDiv.innerHTML = "";
+
+							data.forEach((repo) => {
+								projectsDiv.innerHTML += `
+            <div class="project-card">
+              <h3><a href="${repo.html_url}" target="_blank">${
+									repo.name
+								}</a></h3>
+              <p>${repo.description || "Pas de description"}</p>
+                ${
+									repo.homepage
+										? `<a class="github-link" href="${repo.homepage}" target="_blank">${repo.homepage}</a>`
+										: `<p>Pas de site hébergé pour cet exemple</p>`
+								}
+            </div>
+          `;
+							});
+						})
+						.catch((error) =>
+							console.error("Erreur en récupérant les projets :", error)
+						);
+				});
+		</script>
+
+		<script>
+			document
+				.getElementById("get-meteo")
+				.addEventListener("click", function () {
+					const url =
+						"https://api.open-meteo.com/v1/forecast?latitude=45.8336&longitude=1.2476&models=meteofrance_seamless&current=temperature_2m";
+
+					fetch(url)
+						.then((response) => response.json())
+						.then((data) => {
+							const meteoDiv = document.getElementById("meteo-container");
+							meteoDiv.innerHTML = "";
+
+							meteoDiv.innerHTML += `
+                                		<div class="meteo-card">
+			<p>Limoges</p>
+            <p>${data.current.temperature_2m}°C</p>
+		</div>
+          `;
+						})
+						.catch((error) =>
+							console.error("Erreur en récupérant la météo :", error)
+						);
+				});
+		</script>
+	</body>
 </html>
